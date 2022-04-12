@@ -16,8 +16,8 @@
 
 .taskdisplay {
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
+  justify-content: space-evenly;
+  padding: 5px;
 }
 
 .task{
@@ -36,7 +36,7 @@
   border-color:white;
   border-style: solid;
   margin-right: 1rem;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 25px;
   background-color: none;
 }
@@ -45,25 +45,35 @@
    color: rgb(177, 174, 174);
 }
 
-.text {
+.content {
   flex: 1 1 0%;
   padding: 10px;
   border-radius: 1rem;
-  margin-right: 1rem;
-  font-size: 20px;
   background: none;
-  color: white;
-  border-style: solid;
-  width: 550px;
+  color: rgb(3, 3, 3);
+  border: 0.5px solid black;
+  padding-left: 10px;
+  margin-top: 10px;
 }
 
+.text{
+  color: rgb(248, 242, 242);
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  background-color: transparent;
+}
 
-
+input{
+  width:80%;
+}
 
 
 /*Buttons for task*/
 .actions {
   padding-left: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -110,7 +120,7 @@ h2 {
     font-weight: 10;
     margin-bottom: 1rem;
     color: white;
-    padding-left: 80px;
+    margin-left: 10px;
 }
 
 h1 {
@@ -126,11 +136,6 @@ header {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
-}
-
-main{
-  display: flex;
-  flex-direction: column;
 }
 
 
