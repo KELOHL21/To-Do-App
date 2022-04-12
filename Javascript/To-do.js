@@ -1,14 +1,3 @@
-/*let addtaskbutton = document.getElementById('submitbtn');
-let task_el = document.getElementById('task');
-let input = document.getElementById('userinput');
-
-addtaskbutton.addEventListener('click', function () {
-   let paragraph = document.createElement('p');
-    paragraph.innerText = userinput.value;
-    task_el.appendChild(paragraph);
-})*/
-
-
 
 window.addEventListener('load', () => {
    const form = document.getElementById("inputform");
@@ -62,6 +51,17 @@ form.addEventListener('submit', (e) => {
       list_el.appendChild(task_element);
 
       input.value = "";
+
+      task_edit.addEventListener('click', () => {
+         if (task_edit.innerText.toLowerCase() == "Edit" ) {
+            task_edit.removeAttribute("readonly");
+            task_edit.focus();
+            task_edit.innerText = "Save";
+         } else {
+            task_input.setAttribute("readonly","readonly");
+            task_edit.innerText = "Edit";
+         }
+      })
       
 
    })
@@ -71,3 +71,14 @@ form.addEventListener('submit', (e) => {
 /*let paragraph = document.getElementById("tasks");
       paragraph.innerText = task;
       list_el.appendChild(paragraph);*/
+
+
+      /*let addtaskbutton = document.getElementById('submitbtn');
+let task_el = document.getElementById('task');
+let input = document.getElementById('userinput');
+
+addtaskbutton.addEventListener('click', function () {
+   let paragraph = document.createElement('p');
+    paragraph.innerText = userinput.value;
+    task_el.appendChild(paragraph);
+})*/
