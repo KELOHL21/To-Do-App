@@ -1,10 +1,11 @@
-
+//This is the  variables being set up
 window.addEventListener('load', () => {
    const form = document.getElementById("inputform");
    const input = document.getElementById("userinput");
    const list_el = document.getElementById("tasks");
    const sub_btn = document.getElementById("submitbtn");
 
+//Form function 
 form.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -23,6 +24,7 @@ form.addEventListener('submit', (e) => {
 
       task_element.appendChild(task_content);
 
+      //Task List Functionality
       const task_input = document.createElement("input");
       task_input.classList.add("text");
       task_input.type = "text";
@@ -31,7 +33,8 @@ form.addEventListener('submit', (e) => {
 
       task_content.appendChild(task_input);
 
-      const task_actions =document.createElement("div");
+      //Buttons variables
+      const task_actions = document.createElement("div");
       task_actions.classList.add("actions");
 
       const task_edit = document.createElement("button");
@@ -52,19 +55,47 @@ form.addEventListener('submit', (e) => {
 
       input.value = "";
 
+      //Buttons Functionality
+
+      //Edit Button
       task_edit.addEventListener('click', () => {
-         if (task_edit.innerText.toLowerCase() == "Edit" ) {
-            task_edit.removeAttribute("readonly");
-            task_edit.focus();
-            task_edit.innerText = "Save";
-         } else {
-            task_input.setAttribute("readonly","readonly");
+
+         if (task_edit.innerText.toLowerCase() == "edit") {
+
+            task_input.removeAttribute("readonly");
+            task_input.focus();
+            task_edit.innerText = "Save"; 
+
+         }else{
+            task_input.setAttribute("readonly", "readonly");
             task_edit.innerText = "Edit";
          }
-      })
-      
+              
+      });
 
-   })
+      //Delete Button
+      task_delete.addEventListener('click' , () => {
+
+         task_element.remove(list_el);
+      
+      });
+      
+      //Cross Out
+
+    task_input.addEventListener('click', () => {
+       
+         task_input.style.textDecoration = "line-through";
+
+      })
+
+    task_input.addEventListener('click', () => {
+       
+         task_input.removeAttribute("line- through");
+
+      })
+
+
+   });
 
 })
 
