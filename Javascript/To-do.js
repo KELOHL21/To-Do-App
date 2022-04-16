@@ -13,11 +13,24 @@ window.addEventListener('load', () => {
       e.preventDefault();
 
       const task = input.value;
+      const caldate = date.value;
 
-      if (!task) {
-         alert("Please input a task");
-         return;
-      }
+      if(!task && !caldate)
+		{
+			alert("Please fill in task and select date")
+			return
+			
+		}
+		if(!task)
+		{
+			alert("Please fill in task")
+			return
+		}
+		if(!caldate)
+		{
+			alert("Please fill select date")
+			return
+		}
 
       const task_element = document.createElement("div");
       task_element.classList.add("taskdisplay");
@@ -81,7 +94,7 @@ window.addEventListener('load', () => {
       //Edit Button
       task_edit.addEventListener('click', () => {
 
-         if (task_edit.innerText.toLowerCase() == "edit") {
+         if (task_edit.innerText.toLowerCase() == "edit" ) {
 
             task_input.removeAttribute("readonly");
             task_input.focus();
@@ -168,6 +181,14 @@ window.addEventListener('load', () => {
        function checkTime(i) {
          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
          return i;
+       }
+
+       function display(due_date) {
+          if (t) {
+             
+          } else {
+             
+          }
        }
 
    });
