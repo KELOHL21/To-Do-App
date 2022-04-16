@@ -64,6 +64,14 @@ span{
   cursor: pointer;
 }
 
+.filter span.active{
+  color: rgb(12, 57, 141);
+}
+
+.filter .span:first-child{
+  margin-left: 0;
+}
+
 .clearbtn{
 border:none;
 padding: 5px;
@@ -102,17 +110,26 @@ background-color: cadetblue;
   background-color: transparent;
   width: 65vh;
   transition: color;
-  transition-duration: 2s;
-  transition-timing-function: ease-out;
-  transition-delay: 1s;
+  transition-timing-function: ease-in;
 }
 
-#date{
+.text:hover{
+  color: black;
+}
 
+#datecal{
+width: fit-content;
 border: 1px black solid;
 border-radius: 50px;
 background-color: white;
 color: black;
+text-align: center;
+}
+
+.new-task{
+  display:flex;
+  justify-content: space-between;
+
 }
 
 /*
