@@ -6,6 +6,7 @@ window.addEventListener('load', () => {
    const list_el = document.getElementById("tasks");
    const filter = document.querySelectorAll(".filter span");
    const date = document.getElementById("datecal");
+   const clearbtn = document.getElementById("clearbtn");
 
 
    //Form function 
@@ -15,22 +16,19 @@ window.addEventListener('load', () => {
       const task = input.value;
       const caldate = date.value;
 
-      if(!task && !caldate)
-		{
-			alert("Please fill in task and select date")
-			return
-			
-		}
-		if(!task)
-		{
-			alert("Please fill in task")
-			return
-		}
-		if(!caldate)
-		{
-			alert("Please fill select date")
-			return
-		}
+      if (!task && !caldate) {
+         alert("Please fill in task and select date")
+         return
+
+      }
+      if (!task) {
+         alert("Please fill in task")
+         return
+      }
+      if (!caldate) {
+         alert("Please fill select date")
+         return
+      }
 
       const task_element = document.createElement("div");
       task_element.classList.add("taskdisplay");
@@ -94,7 +92,7 @@ window.addEventListener('load', () => {
       //Edit Button
       task_edit.addEventListener('click', () => {
 
-         if (task_edit.innerText.toLowerCase() == "edit" ) {
+         if (task_edit.innerText.toLowerCase() == "edit") {
 
             task_input.removeAttribute("readonly");
             task_input.focus();
@@ -114,6 +112,14 @@ window.addEventListener('load', () => {
 
       });
 
+      //Clear Button
+
+      clearbtn.addEventListener('click', () => {
+
+         task_element.remove(task_content);
+
+      })
+
       //Cross Out
 
       task_input.addEventListener('click', () => {
@@ -125,42 +131,45 @@ window.addEventListener('load', () => {
 
       task_input.addEventListener('click', () => {
 
-         task_input.removeAttribute("line- through");
+         task_input.style.removeEventListener("line- through");
+         due_date.style.removeEventListener("line- through");
 
       })
 
+
+
       //Adding Local Storage * *
       input.addEventListener('keyup', (e) => {
-         
+
          if (e.key == "Enter" && task) {
-            
+
             let todos = localStorage.getItem("tasks");
 
-            if(!todos){
+            if (!todos) {
 
-            todos = []; // If no Todo then pass an empty array
+               todos = []; // If no Todo then pass an empty array
 
-         } 
-         
-         let taskInfo = { name:task, status: "pending" };
+            }
 
-         todos.push(taskInfo);//Adding a new task to local storage
+            let taskInfo = { name: task, status: "pending" };
 
-         localStorage.setItem("tasks", list_el);
+            todos.push(taskInfo);//Adding a new task to local storage
 
-      }
-         
+            localStorage.setItem("tasks", list_el);
+
+         }
+
       })
 
       //Time and Date Function
 
       const due_date = document.createElement('label');
-		due_date.htmlFor = "text";
-		due_date.classList.add('dueDate');
-		due_date.innerText = date.value;
+      due_date.htmlFor = "text";
+      due_date.classList.add('dueDate');
+      due_date.innerText = date.value;
       date.value = "";
 
-		task_content.appendChild(due_date);
+      task_content.appendChild(due_date);
       function startTime() {
          const today = new Date();
          let hour = today.getHours();
@@ -171,25 +180,15 @@ window.addEventListener('load', () => {
          let year = today.getFullYear();
          minutes = checkTime(minutes);
          seconds = checkTime(seconds);
-         document.querySelector('.dateTime').innerHTML =  hour + ":" + minutes + ":" + seconds;
-         document.querySelector('.day').innerHTML =  day + "/" + month + "/" + year;
          setTimeout(startTime, 1000);
-       }
-      
-       setTimeout(startTime, 1000);
-      
-       function checkTime(i) {
-         if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-         return i;
-       }
+      }
 
-       function display(due_date) {
-          if (t) {
-             
-          } else {
-             
-          }
-       }
+      setTimeout(startTime, 1000);
+
+      function checkTime(i) {
+         if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+         return i;
+      }
 
    });
 
