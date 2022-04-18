@@ -7,19 +7,17 @@
 
 /*Display of Tasks*/
 .to-dolist {
-  max-width:50vw;
-  margin-left:10%;
+  max-width:40vw;
   flex: 1 1 0%;
-  padding: 10px;
+  padding-left: 10px;
 }
 
 .taskdisplay {
-  flex: 1 1 0%;
+  margin: auto;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
   border-bottom: 1px lightcyan;
-
+  padding-left: 55%;
 }
 
 .task{
@@ -45,23 +43,24 @@
 
 #userinput::placeholder {
    color: rgb(177, 174, 174);
+   text-align: center;
 }
 
 .controls{
   display: flex;
   justify-content: space-between;
-  max-width:70vw;
-  margin-left:15%;
   padding: 10px;
   font-size: 20px;
   border-bottom: 1px solid white;
+  margin: auto;
+  width: 60vw;
 }
 
+
 span{
-  padding:20px;
-  margin-right: 10px;
-  margin-left: -35px;
+  padding:10px;
   cursor: pointer;
+  margin-top: 100px;
 }
 
 .filter span.active{
@@ -74,20 +73,22 @@ span{
 
 .clearbtn{
 border:none;
-padding: 5px;
+border-bottom: 20px;
+padding: px;
 background-color: cadetblue;
+border-radius: 20px;
 }
 
 .content {
-  max-width:50vw;
-  margin-left:50%;
+  margin-left:5%;
   flex: 1 1 0%;
   padding: 10px;
   border-radius: 1rem;
   background: none;
   border: 0.5px solid black;
   margin-top: 10px;
-
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 @media screen and (max-width : 650px ) {
@@ -108,9 +109,11 @@ background-color: cadetblue;
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   background-color: transparent;
-  width: 65vh;
+  width: 25vw;
   transition: color;
   transition-timing-function: ease-in;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 .text:hover{
@@ -118,9 +121,9 @@ background-color: cadetblue;
 }
 
 #datecal{
-width: fit-content;
-border: 1px black solid;
-border-radius: 50px;
+width: min-content;
+border: 1px transparent;
+border-radius: 20px;
 background-color: white;
 color: black;
 text-align: center;
@@ -129,37 +132,21 @@ text-align: center;
 .new-task{
   display:flex;
   justify-content: space-between;
-
 }
-
-/*
-
-HOVER EFFECT
-
-input .type {
-  transition: color;
-  transition-duration: 2s;
-  transition-timing-function: ease-out;
-  transition-delay: 1s;
-}
-
-input .type:hover{
-  color: rgb(0, 0, 0);
-}*/
 
 input{
-  width:80%;
+  width:50%;
   border:none;
   outline: none;
-  justify-content: center;
 }
 
 
 /*Buttons for task*/
 .actions {
-  padding-left: 100px;
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
+  padding-left: 150%;
 }
 
 button {
@@ -169,12 +156,15 @@ button {
   border: none;
   font-size: 20px;
   color: whitesmoke;
+  padding-top: 10px;
+  margin-right: 10px;
 }
 
 #submitbtn{
     font-weight: 400;
     cursor: pointer;
     transition: 0,5s;
+    font-size: 30px;
 }
 
 .edit{
@@ -200,14 +190,6 @@ body {
   min-width: 100vh;
   color: white;
 }
-
-h2 {
-    font-size: 2rem;
-    font-weight: 10;
-    margin-bottom: 1rem;
-    color: white;
-}
-
 h1 {
   font-size: 2.5rem;
   font-weight: 10;
@@ -223,6 +205,15 @@ header {
   margin: 0 auto;
 }
 
+main{
+  border: 1px solid black;
+  width: 70vw;
+  margin: auto;
+  border-radius: 20px;
+  background-color: rgb(153, 23, 228);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 
 
 
