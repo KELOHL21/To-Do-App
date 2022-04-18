@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
 
-    <link rel="stylesheet" type="text/css" href="./Css/To-do.css">
-    <link rel = "stylesheet" type="text/css" href = "./Other Material/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./Css/To-do.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./Other Material/css/font-awesome.css"
+    />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="todohead">
+          <img id="todoimg" src="./Images/todo.jpg" alt="todo icon" />
 
+          <h1>To-Do List</h1>
+        </div>
+        <form id="inputform">
+          <div class="new-task">
+            <input id="userinput" type="text" placeholder="Add a Task" />
 
-</head>
-<body>
+            <input
+              id="datecal"
+              class="duedate"
+              type="date"
+              placeholder="none"
+            />
+          </div>
 
-  <main>
+          <button id="submitbtn" type="submit">Submit</button>
+        </form>
+      </header>
 
-  <header>
-      <h1>To-Do List</h1>
-      <form id="inputform">
-
-        <div class="new-task">
-
-        <input id="userinput" type="text" placeholder="Add a Task"/>
-
-         <input id = "datecal" type="date"/>
-
-        </input>
+      <section class="controls" id="controls">
+        <div class="filter" id="filter">
+          <span id="all" class="active">All</span>
+          <span id="pending">Pending</span>
+          <span id="completed">Completed</span>
+          <span id="sort">Sort</span>
         </div>
 
-        <button id="submitbtn" type="submit">Submit</button>
+        <button class="clearbtn" id="clearbtn">Clear All</button>
+      </section>
 
-       </form>
-  </header>
-
-    <section class="controls" id="controls">
-
-    <div class="filter" id="filter">
-
-      <span id="all" class= "active" >All</span>
-      <span id="pending" >Pending</span>
-      <span id="completed" >Completed</span>
-      <span id="sort" >Sort</span>
-
-    </div>
-
-    <button class="clearbtn" id="clearbtn"> Clear All </button>
-
-    </section>
-
-
-    <section class="to-dolist" >
-
-
+      <section class="to-dolist">
         <div id="tasks">
           <div class="task">
-           <!--<div class="taskdisplay" id="taskDisplay">
+            <!--<div class="taskdisplay" id="taskDisplay">
                     <div class = "content">
                       <input 
                        type="text",
                        class="text",
+                       id ="text_display",
                        readonly
-                    />
-                  </div>
-               <div class="actions">
+                     />
+                    </div>-->
+                    <!--<div class="actions">
                      <button class="edit" type="submit">Edit</button>
                      <button class="delete" type="reset">Delete</button>
-                </div>-->
-            </div>
-          </div>  
-    </section>     
-  </main>
-<script src="./Javascript/To-do.js"></script>
-</body>
+                    </div>
+            </div>-->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./Javascript/To-do.js"></script>
+  </body>
 </html>

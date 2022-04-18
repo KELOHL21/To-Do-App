@@ -7,7 +7,52 @@ window.addEventListener('load', () => {
    const filter = document.querySelectorAll(".filter span");
    const date = document.getElementById("datecal");
    const clearbtn = document.getElementById("clearbtn");
+   const submit = document.getElementById("submitbtn");
+   const new_task = document.querySelector("#inputform input");
+   let task_box = document.querySelector('.taskdisplay');
 
+
+   //Local Storage
+
+   submit.addEventListener('click', e => {
+      //getting local storage for the todo list
+      let todo = JSON.parse(localStorage.getItem("task"));
+
+
+      function showTasks() {
+         let display = "";
+         todo.forEach((todo, id) => {
+            display += `<div class = "content">
+                 <input 
+                   type="text",
+                   ${todo},
+                   id ="${id}",
+                   readonly
+                       />
+                 </div>
+                 <div class="actions">
+                     <button class="edit" type="submit">Edit</button>
+                     <button class="delete" type="reset">Delete</button>
+                    </div>`
+         });
+
+         task_box.innerHTML = display;
+      }
+
+      showTasks();
+      let userTask = document.querySelector('.text');
+      if (input == "submitbtn" && userTask);
+
+      submit.value = "";
+      if (!todo) {
+         todo = [];//If no todo pass a empty array
+      }
+      let taskInfo = { name: userTask, status: "pending" };
+      todo.push(taskInfo);
+      localStorage.setItem("task", JSON.stringify(todo));
+
+      showTasks();
+   });
 
    //Form function 
    form.addEventListener('submit', (e) => {
@@ -37,7 +82,7 @@ window.addEventListener('load', () => {
       task_content.classList.add("content");
 
       const todo_date = document.createElement("div");
-      todo_date.classList.add("date");
+      todo_date.classList.add("datecal");
 
       task_element.appendChild(task_content);
 
@@ -50,6 +95,7 @@ window.addEventListener('load', () => {
       task_input.setAttribute("readonly", "readonly");
 
       task_content.appendChild(task_input);
+
 
       //Buttons variables
       //DOM Elements
@@ -131,41 +177,15 @@ window.addEventListener('load', () => {
 
       task_input.addEventListener('click', () => {
 
-         task_input.style.removeEventListener("line- through");
-         due_date.style.removeEventListener("line- through");
+         task_input.style.removeAttribute('line-through');
+         due_date.style.removeAttribute('line-through')
 
       })
-
-
-
-      //Adding Local Storage * *
-      input.addEventListener('keyup', (e) => {
-
-         if (e.key == "Enter" && task) {
-
-            let todos = localStorage.getItem("tasks");
-
-            if (!todos) {
-
-               todos = []; // If no Todo then pass an empty array
-
-            }
-
-            let taskInfo = { name: task, status: "pending" };
-
-            todos.push(taskInfo);//Adding a new task to local storage
-
-            localStorage.setItem("tasks", list_el);
-
-         }
-
-      })
-
       //Time and Date Function
 
       const due_date = document.createElement('label');
       due_date.htmlFor = "text";
-      due_date.classList.add('dueDate');
+      due_date.classList.add('duedate');
       due_date.innerText = date.value;
       date.value = "";
 
@@ -193,18 +213,3 @@ window.addEventListener('load', () => {
    });
 
 })
-
-/*let paragraph = document.getElementById("tasks");
-      paragraph.innerText = task;
-      list_el.appendChild(paragraph);*/
-
-
-/*let addtaskbutton = document.getElementById('submitbtn');
-let task_el = document.getElementById('task');
-let input = document.getElementById('userinput');
-
-addtaskbutton.addEventListener('click', function () {
-let paragraph = document.createElement('p');
-paragraph.innerText = userinput.value;
-task_el.appendChild(paragraph);
-})*/
