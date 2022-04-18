@@ -6,8 +6,13 @@ All deadlines will be met.Planning your day out helps when anxiety and stress st
 <ul>
 <li>Edit your task anytime.</li>
 <li>Delete any incorrect or no longer active tasks.</li>
-<li>Controls allowing to see All,Pending and Completed task.</li>
 <li>Clear all tasks.</li>
 <li>Due Date added</li>
+</ul>
+
+# Still to Come
+<ul>
+<li>Controls allowing to see All,Pending and Completed task.</li>
+<li>Local Storage</li>
 </ul>
 
