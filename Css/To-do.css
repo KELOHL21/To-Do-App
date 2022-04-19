@@ -5,6 +5,37 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+body {
+  flex: 1 1 0%;
+  background-image: url(../Images/background.jpg);
+  background-size: 100vw;
+  position:sticky;
+  min-width: 100vw;
+  color: rgb(0, 0, 0);
+}
+
+main {
+  flex: 1 1 0%;
+  border: 1px solid black;
+  width: 70vw;
+  max-height: 150% ;
+  height: scroll;
+  margin: auto;
+  border-radius: 20px;
+  background-color: white;
+  opacity: 70%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+header {
+  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /*Display of Tasks*/
 .to-dolist {
   max-width: 40vw;
@@ -33,6 +64,7 @@ text-align: center;
   display: flex;
 }
 
+/*Input Display*/
 #userinput {
   flex: 1 1 0%;
   padding: 10px;
@@ -48,51 +80,6 @@ text-align: center;
   text-align: center;
 }
 
-.controls {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  font-size: 20px;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  margin: auto;
-  width: 60vw;
-  color: black;
-}
-
-@media screen and (max-width:800px) {
-  .controls{
-    font-size:15px ;
-    padding: 5px;
-
-  }
-}
-
-span {
-  padding: 10px;
-  cursor: pointer;
-  margin-top: 100px;
-}
-
-.filter span.active {
-  color: rgb(12, 57, 141);
-}
-
-.filter .span:first-child {
-  margin-left: 0;
-}
-
-.clearbtn {
-  border: none;
-  padding: 5px;
-  background-color: rgba(94, 214, 154, 0.842);
-  border-radius: 20px;
-}
-@media screen and (max-width:800px) {
-  .clearbtn{
-    font-size: 15px;
-    margin-bottom: 5px;
-  }
-}
 
 .content {
   flex: 1 1 0%;
@@ -177,7 +164,7 @@ span {
     width: 30%;
     padding: 10px;
     margin: 5px;
-    margin-left: 25%;
+    margin-left: 35%;
   }
 }
 
@@ -208,7 +195,7 @@ input {
   }
 }
 
-/*Buttons for task*/
+/*Buttons Edit and Delete*/
 .actions {
   display: flex;
   flex-direction: column;
@@ -230,18 +217,6 @@ button {
   border: none;
   padding-top: 10px;
   margin-right: 10px;
-}
-
-#submitbtn {
-  font-weight: 400;
-  cursor: pointer;
-  transition: 0, 5s;
-  font-size: 30px;
-}
-@media screen and (max-width:600px) {
-  #submitbtn{
-    font-size: 20px;
-  }
 }
 
 .edit {
@@ -280,15 +255,6 @@ button {
 
 /*General*/
 
-body {
-  flex: 1 1 0%;
-  background-image: url(../Images/background.jpg);
-  background-size: 100vw;
-  position:sticky;
-  min-width: 100vw;
-  color: rgb(0, 0, 0);
-}
-
 h1 {
   font-size: 2.5rem;
   font-weight: 10;
@@ -307,28 +273,7 @@ h1 {
   }
 }
 
-header {
-  padding: 2rem 1rem;
-  text-align: center;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-main {
-  flex: 1 1 0%;
-  border: 1px solid black;
-  width: 70vw;
-  max-height: 150% ;
-  height: scroll;
-  margin: auto;
-  border-radius: 20px;
-  background-color: white;
-  opacity: 70%;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
+/*Header and Image Styling*/
 #todoimg {
   width: 10%;
   height: 10%;
@@ -341,3 +286,81 @@ main {
   justify-content: center;
   padding: 5px;
 }
+
+/*Submit and Clear All Button*/
+#actionbutton{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin: auto;
+  width: 60vw;
+  color: black;
+}
+
+#submitbtn {
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0, 5s;
+  font-size: 30px;
+}
+@media screen and (max-width:800px) {
+  #submitbtn{
+    font-size: 20px;
+  }
+}
+
+.clearbtn {
+  border: none;
+  padding: 5px;
+  background-color: rgba(94, 214, 154, 0.842);
+  border-radius: 20px;
+  font-size: 25px;
+}
+@media screen and (max-width:800px) {
+  .clearbtn{
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+}
+
+/*.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 20px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin: auto;
+  width: 60vw;
+  color: black;
+}
+
+@media screen and (max-width:800px) {
+  .controls{
+    font-size:15px ;
+    padding: 5px;
+
+  }
+}
+
+span {
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 100px;
+}
+
+@media screen and (max-with:650px) {
+  span{
+    font-size: 10px;
+    padding: 5px;
+  }
+  
+}
+
+.filter span.active {
+  color: rgb(12, 57, 141);
+}
+
+.filter .span:first-child {
+  margin-left: 0;
+}*/
