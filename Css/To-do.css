@@ -161,22 +161,23 @@ span {
   background-color: white;
   color: black;
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
+}
+
+@media screen and (max-width:550px) {
+  #datecal{
+    font-size: 10px;
+    width: 25vw;
+  }
 }
 
 @media screen and (max-width: 750px) {
   #datecal {
     font-size: 10px;
-    width: 25%;
+    width: 30%;
     padding: 10px;
     margin: 5px;
-    justify-content: flex-end;
-  }
-}
-
-@media screen and (max-width:550px) {
-  #datecal{
-font-size: 15px;
+    margin-left: 25%;
   }
 }
 
@@ -189,7 +190,7 @@ font-size: 15px;
   .new-task{
     display:flex;
     flex-direction:column;
-    text-align: center;
+
     }
 }
 
