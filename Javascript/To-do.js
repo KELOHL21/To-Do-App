@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
 
    submit.addEventListener('click', e => {
       //getting local storage for the todo list
-      let todo = JSON.parse(localStorage.getItem("task"));
+      let todo = JSON.parse(localStorage.getItem("tasks"));
 
 
       function showTasks() {
@@ -38,20 +38,19 @@ window.addEventListener('load', () => {
 
          task_box.innerHTML = display;
       }
-
       showTasks();
-      let userTask = document.querySelector('.text');
-      if (input == "submitbtn" && userTask);
+
+      let userTask = document.querySelector("userinput");
+      if (e.key == "submitbtn" && todo);
 
       submit.value = "";
-      if (!todo) {
-         todo = [];//If no todo pass a empty array
+      if (!todo) {//If no todo pass a empty array
+         todo = [];
       }
       let taskInfo = { name: userTask, status: "pending" };
       todo.push(taskInfo);
-      localStorage.setItem("task", JSON.stringify(todo));
-
-      showTasks();
+      localStorage.setItem("tasks", JSON.stringify(todo));
+      //showTasks();
    });
 
    //Form function 
