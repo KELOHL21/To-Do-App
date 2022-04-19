@@ -160,11 +160,11 @@ text-align: center;
 
 @media screen and (max-width: 750px) {
   #datecal {
-    font-size: 10px;
-    width: 30%;
+    font-size: 15px;
+    width: 50%;
     padding: 10px;
     margin: 5px;
-    margin-left: 35%;
+    margin-left: 25%;
   }
 }
 
