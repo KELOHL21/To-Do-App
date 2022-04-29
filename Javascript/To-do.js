@@ -15,200 +15,189 @@ window.addEventListener('load', () => {
    //Local Storage
 
    submit.addEventListener('click', e => {
-      //getting local storage for the todo list
-      let todo = JSON.parse(localStorage.getItem("tasks"));
+      
 
+      let todo = JSON.parse(localStorage.getItem("Tasks"));//getting local storage for the todo list
 
-      function showTasks() {
-         let display = "";
-         todo.forEach((todo, id) => {
-            display += `<div class = "content">
-                 <input 
-                   type="text",
-                   ${todo},
-                   id ="${id}",
-                   readonly
-                       />
-                 </div>
-                 <div class="actions">
-                     <button class="edit" type="submit">Edit</button>
-                     <button class="delete" type="reset">Delete</button>
-                    </div>`
+      function showTask() {
+
+         todo.forEach((todo) => {
+
+            console.log(todo);
+
          });
 
-         task_box.innerHTML = display;
       }
-      showTasks();
+      showTask();
 
-      let userTask = document.querySelector("userinput");
-      if (e.key == "submitbtn" && todo);
+      let userTask = input.value;
+
+      if (e.key == "submitbtn");
 
       submit.value = "";
+
       if (!todo) {//If no todo pass a empty array
          todo = [];
       }
       let taskInfo = { name: userTask, status: "pending" };
+
       todo.push(taskInfo);
-      localStorage.setItem("tasks", JSON.stringify(todo));
-      //showTasks();
+
+      localStorage.setItem("Tasks", JSON.stringify(todo));
+
+      showTask()
    });
 
-   //Form function 
-   form.addEventListener('submit', (e) => {
-      e.preventDefault();
 
-      const task = input.value;
-      const caldate = date.value;
+//Form function 
+form.addEventListener('submit', (e) => {
+   e.preventDefault();
 
-      if (!task && !caldate) {
-         alert("Please fill in task and select date")
-         return
+   const task = input.value;
+   const caldate = date.value;
 
-      }
-      if (!task) {
-         alert("Please fill in task")
-         return
-      }
-      if (!caldate) {
-         alert("Please fill select date")
-         return
-      }
+   if (!task && !caldate) {
+      alert("Please fill in task and select date")
+      return
 
-      const task_element = document.createElement("div");
-      task_element.classList.add("taskdisplay");
+   }
+   if (!task) {
+      alert("Please fill in task")
+      return
+   }
+   if (!caldate) {
+      alert("Please fill select date")
+      return
+   }
 
-      const task_content = document.createElement("div")
-      task_content.classList.add("content");
+   const task_element = document.createElement("div");
+   task_element.classList.add("taskdisplay");
 
-      const todo_date = document.createElement("div");
-      todo_date.classList.add("datecal");
+   const task_content = document.createElement("div")
+   task_content.classList.add("content");
 
-      task_element.appendChild(task_content);
+   const todo_date = document.createElement("div");
+   todo_date.classList.add("datecal");
 
-
-      //Task List Functionality
-      const task_input = document.createElement("input");
-      task_input.classList.add("text");
-      task_input.type = "text";
-      task_input.value = task;
-      task_input.setAttribute("readonly", "readonly");
-
-      task_content.appendChild(task_input);
+   task_element.appendChild(task_content);
 
 
-      //Buttons variables
-      //DOM Elements
-      const task_actions = document.createElement("div");
-      task_actions.classList.add("actions");
+   //Task List Functionality
+   const task_input = document.createElement("input");
+   task_input.classList.add("text");
+   task_input.type = "text";
+   task_input.value = task;
+   task_input.setAttribute("readonly", "readonly");
 
-      const task_edit = document.createElement("button");
-      task_edit.classList.add("edit");
-      task_edit.innerHTML = "Edit";
-
-      const task_delete = document.createElement("button");
-      task_delete.classList.add("delete");
-      task_delete.innerHTML = "Delete";
-
-      task_actions.appendChild(task_edit);
-      task_actions.appendChild(task_delete);
+   task_content.appendChild(task_input);
 
 
-      task_element.appendChild(task_actions);
+   //Buttons variables
+   //DOM Elements
+   const task_actions = document.createElement("div");
+   task_actions.classList.add("actions");
 
-      list_el.appendChild(task_element);
+   const task_edit = document.createElement("button");
+   task_edit.classList.add("edit");
+   task_edit.innerHTML = "Edit";
 
-      input.value = "";
+   const task_delete = document.createElement("button");
+   task_delete.classList.add("delete");
+   task_delete.innerHTML = "Delete";
 
-      //Buttons Functionality
+   task_actions.appendChild(task_edit);
+   task_actions.appendChild(task_delete);
 
-      //Controls
-      filter.forEach(btn => {
 
-         btn.addEventListener('click', () => {
+   task_element.appendChild(task_actions);
 
-            console.log(btn)
-            document.querySelector("span.active").classList.remove("active");
-            btn.classList.add("active")
+   list_el.appendChild(task_element);
 
-         })
+   input.value = "";
 
-      })
+   //Buttons Functionality
 
-      //Edit Button
-      task_edit.addEventListener('click', () => {
+   /*Controls
+   filter.forEach(btn => {
 
-         if (task_edit.innerText.toLowerCase() == "edit") {
+      btn.addEventListener('click', () => {
 
-            task_input.removeAttribute("readonly");
-            task_input.focus();
-            task_edit.innerText = "Save";
-
-         } else {
-            task_input.setAttribute("readonly", "readonly");
-            task_edit.innerText = "Edit";
-         }
-
-      });
-
-      //Delete Button
-      task_delete.addEventListener('click', () => {
-
-         task_element.remove(list_el);
-
-      });
-
-      //Clear Button
-
-      clearbtn.addEventListener('click', () => {
-
-         task_element.remove(task_content);
+         console.log(btn)
+         document.querySelector("span.active").classList.remove("active");
+         btn.classList.add("active")
 
       })
 
-      //Cross Out
+   })*/
 
-      task_input.addEventListener('click', () => {
+   //Edit Button
+   task_edit.addEventListener('click', () => {
 
-         task_input.style.textDecoration = "line-through";
-         due_date.style.textDecoration = "line-through";
+      if (task_edit.innerText.toLowerCase() == "edit") {
 
-      })
+         task_input.removeAttribute("readonly");
+         task_input.focus();
+         task_edit.innerText = "Save";
 
-      task_input.addEventListener('click', () => {
-
-         task_input.style.removeAttribute('line-through');
-         due_date.style.removeAttribute('line-through')
-
-      })
-      //Time and Date Function
-
-      const due_date = document.createElement('label');
-      due_date.htmlFor = "text";
-      due_date.classList.add('duedate');
-      due_date.innerText = date.value;
-      date.value = "";
-
-      task_content.appendChild(due_date);
-      function startTime() {
-         const today = new Date();
-         let hour = today.getHours();
-         let minutes = today.getMinutes();
-         let seconds = today.getSeconds();
-         let day = today.getDay();
-         let month = today.getMonth();
-         let year = today.getFullYear();
-         minutes = checkTime(minutes);
-         seconds = checkTime(seconds);
-         setTimeout(startTime, 1000);
-      }
-
-      setTimeout(startTime, 1000);
-
-      function checkTime(i) {
-         if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
-         return i;
+      } else {
+         task_input.setAttribute("readonly", "readonly");
+         task_edit.innerText = "Edit";
       }
 
    });
+
+   //Delete Button
+   task_delete.addEventListener('click', () => {
+
+      task_element.remove(list_el);
+
+   });
+
+   //Clear Button
+
+   //Just stopped working
+   clearbtn.addEventListener('click', () => {
+
+      task_element.remove(task_content);
+
+   })
+
+   //Cross Out
+
+   task_input.addEventListener('click', () => {
+
+      task_input.style.textDecoration = "line-through";
+      due_date.style.textDecoration = "line-through";
+
+   })
+
+   task_input.addEventListener('click', () => {
+
+      task_input.style.removeAttribute('line-through');
+      due_date.style.removeAttribute('line-through')
+
+   })
+   //Time and Date Function
+
+   const due_date = document.createElement('label');
+   due_date.htmlFor = "text";
+   due_date.classList.add('duedate');
+   due_date.innerText = date.value;
+   date.value = "";
+
+   task_content.appendChild(due_date);
+   function startTime() {
+      const today = new Date();
+      let day = today.getDay();
+      let month = today.getMonth();
+      let year = today.getFullYear();
+   }
+
+   function checkTime(i) {
+      if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+      return i;
+   }
+
+});
 
 })
